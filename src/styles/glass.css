@@ -1,0 +1,182 @@
+/* Shared visual layer, loaded after component styles. No business state here. */
+:root {
+  --glass-ink: #173c36;
+  --glass-muted: #526e66;
+  --glass-green: #087d6a;
+  --glass-border: rgba(255, 255, 255, .92);
+  --glass-surface: linear-gradient(135deg, rgba(255, 255, 255, .91), rgba(243, 252, 248, .84));
+  --glass-solid: #f6fcf9;
+  --glass-shadow: 0 12px 38px #174d3b0b, 0 2px 6px #174d3b05, inset 0 1px 0 #fff;
+  --glass-radius: 24px;
+}
+.activity-badges { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.activity-source, .activity-status { display: inline-block; border: 1px solid #c9dbd0; border-radius: 99px; padding: 5px 8px; font-size: .7rem; font-weight: 600; line-height: 1.3; white-space: nowrap; color: #476457; background: #f0f5f1; }
+.source-demo { color: #89580e; background: #fff5df; border-color: #e9d7af; }
+.source-local { color: #65517b; background: #f3eef9; border-color: #dcd0e9; }
+.status-open { color: #076747; background: #e2f5e8; border-color: #b6dec6; }
+.status-full, .status-pending { color: #8a580c; background: #fff4dc; border-color: #e9d7af; }
+.status-cancelled { color: #963f35; background: #fff0e9; border-color: #eccabd; }
+.status-closed { color: #526158; background: #eaf0ec; border-color: #cbd7ce; }
+.activity-source-note { background: #fff6e4; color: #78571f; border: 1px solid #e8d8b9; border-radius: 12px; padding: 12px 14px; line-height: 1.8; font-size: .86rem; }
+.info-disclosure { color: #526e66; font-size: .83rem; text-align: left; margin: 14px 0 20px; line-height: 1.8; }
+.info-disclosure summary { cursor: pointer; width: fit-content; border-radius: 6px; color: #247259; padding: 4px 0; }
+.info-disclosure summary:focus-visible, .home-demo-section summary:focus-visible { outline: 2px solid #08775f; outline-offset: 4px; }
+.info-disclosure > div { border-left: 2px solid #bbdbcb; padding-left: 14px; margin-top: 8px; }
+.info-disclosure p { margin: 6px 0; }
+.section-note { color: #526e66; font-size: .85rem; line-height: 1.8; margin: 12px 0 22px; }
+.home-parser-link { background: transparent; color: #247259; border: 0; padding: 0; margin-top: 20px; font: inherit; font-size: .85rem; cursor: pointer; text-align: left; }
+.home-demo-section { background: #ffffff73; border: 1px solid #fff; border-radius: 24px; padding: 20px; margin: 8px 0 36px; }
+.home-demo-section > summary { cursor: pointer; color: #466658; font-size: .95rem; font-weight: 600; }
+.home-page .events-section { scroll-margin-top: 150px; }
+.home-page .my-events-empty { gap: 14px; }
+@media (max-width: 680px) { .home-page .events-section { scroll-margin-top: 190px; } }
+body {
+  background-color: #f3f9f6;
+  background-image: radial-gradient(ellipse at 90% 0%, #d7f2e4a3, transparent 48%), radial-gradient(ellipse at 0% 45%, #dff0f6a1, transparent 48%), linear-gradient(155deg, #fbfdfb, #eff8f3);
+  color: var(--glass-ink);
+}
+.app-shell { overflow-wrap: anywhere; }
+.app-shell > main { padding-top: 48px; padding-bottom: 64px; }
+.app-shell :is(h1, h2, h3) { color: #15392f; }
+.app-shell :is(.section-kicker, .eyebrow) { color: #08775f; }
+.app-shell .hero-section {
+  position: relative; border: 1px solid var(--glass-border); border-radius: 30px;
+  background: radial-gradient(ellipse at 87% 42%, #c6eee09e, transparent 40%), linear-gradient(125deg, #ffffffb3, #eaf8f2a6);
+  box-shadow: var(--glass-shadow); min-height: 500px;
+}
+.app-shell .radar-visual { background: #ffffff61; box-shadow: inset 0 1px 2px #ffffffd9, 0 12px 40px #087d6a0a; border: 1px solid #ffffff9c; }
+.app-shell .intro-section { margin-top: 24px; border: 1px solid #ffffffb3; border-radius: 22px; background: #ffffff61; padding: 28px 20px; box-shadow: inset 0 1px 0 #ffffffb3; }
+.app-shell .events-section { padding-top: 52px; }
+
+/* Blur only large panels. Card lists stay translucent without stacking dozens
+   of backdrop filters, keeping scrolling light on lower-powered devices. */
+.app-shell :is(.notice-panel, .result-panel, .search-controls, .publish-form, .auth-page form, .publication-manager) {
+  background: var(--glass-surface); border: 1px solid var(--glass-border);
+  border-radius: var(--glass-radius); box-shadow: var(--glass-shadow);
+  -webkit-backdrop-filter: blur(16px) saturate(135%); backdrop-filter: blur(16px) saturate(135%);
+}
+.app-shell .auth-page form { padding: 26px; margin-top: 18px; }
+.app-shell :is(.auth-notice, .publish-note) { border: 1px solid #ffffffd9; background: #eaf7f0b8; border-radius: 16px; color: #3b6356; }
+.app-shell :is(.parser-hero > p:last-child, .search-events-hero > p:last-child, .my-events-header > p:last-child, .publish-page > p, .auth-page > p) { color: var(--glass-muted); line-height: 1.85; }
+.app-shell :is(.panel-heading span, .event-card dt, .result-details dt, .event-details-fields dt) { color: #5a776d; }
+.app-shell :is(.result-description, .parse-disclosure, .search-source-note, .notification-note) { color: var(--glass-muted); }
+
+.app-shell .event-card {
+  --event-glow: #bcead54d;
+  background: radial-gradient(ellipse at 100% 0, var(--event-glow), transparent 55%), var(--glass-surface);
+  border: 1px solid var(--glass-border); border-radius: 22px; padding: 23px;
+  box-shadow: var(--glass-shadow); min-width: 0;
+  transition: transform .28s cubic-bezier(.2,.8,.2,1), box-shadow .28s, border-color .28s;
+}
+.app-shell .event-card.accent-orange { --event-glow: #ffe7bd63; }
+.app-shell .event-card.accent-blue { --event-glow: #c8e5ff63; }
+.app-shell .event-card.accent-purple { --event-glow: #e4d5fa63; }
+.app-shell .event-card h3 { line-height: 1.6; }
+.app-shell .event-card dl { border-top-color: #cfdfd778; gap: 14px; }
+.app-shell .event-card dd { color: #365b4e; line-height: 1.6; }
+.app-shell .event-card-actions { flex-wrap: wrap; align-items: center; padding-top: 6px; }
+.app-shell .event-type { border: 1px solid #ffffffbd; box-shadow: inset 0 1px 0 #ffffffab; padding: 6px 11px; }
+.app-shell .accent-orange .event-type { color: #965809; }
+.app-shell .accent-blue .event-type { color: #265e90; }
+.app-shell .accent-purple .event-type { color: #684394; }
+.app-shell :is(.empty-result, .my-events-empty, .notification-item time, .search-results-heading p) { color: var(--glass-muted); }
+.app-shell .publication-manager > .event-card { background: transparent; border: 0; box-shadow: none; padding: 8px 4px 18px; transform: none; }
+.app-shell :is(.smart-insight, .participants-panel, .cancellation-form, .onboarding-explanation, .event-details-dialog section) {
+  background: linear-gradient(130deg, #ffffffb8, #eaf7f0b8); border: 1px solid #ffffffd9; border-radius: 16px;
+  box-shadow: inset 0 1px 0 #fff;
+}
+.app-shell :is(.my-events-empty, .search-empty, .publish-success) { background: var(--glass-surface); border: 1px solid #ffffffeb; border-radius: var(--glass-radius); box-shadow: var(--glass-shadow); padding: 32px 24px; }
+.app-shell .notification-item { background: var(--glass-surface); border: 1px solid var(--glass-border); border-radius: 20px; box-shadow: var(--glass-shadow); }
+.app-shell .notification-item.unread { border-left: 4px solid #159471; background: linear-gradient(120deg, #ecf9f1ed, #ffffffd9); }
+.app-shell .participants-panel :is(th, td) { border-bottom-color: #cadecf8c; }
+.app-shell .participants-panel th { color: #28604b; background: #ffffff6b; }
+
+/* Controls remain substantially opaque for legibility and native usability. */
+.app-shell :is(input:not([type='checkbox']):not([type='radio']), textarea, select) {
+  color: #234e41; background-color: #ffffffd9;
+  border: 1px solid #b9d6c9; border-radius: 13px;
+  box-shadow: inset 0 1px 3px #123e3005, 0 1px 0 #ffffffd9;
+  transition: border-color .2s, box-shadow .2s, background-color .2s;
+}
+.app-shell :is(input, textarea, select)::placeholder { color: #748c82; opacity: 1; }
+.app-shell :is(input, textarea, select):focus {
+  outline: 2px solid #168567; outline-offset: 2px; background-color: #fff;
+  border-color: #2d9c7c; box-shadow: 0 0 0 5px #0f936b10;
+}
+.app-shell :is(input, textarea, select):disabled { background: #edf3ef; color: #5a7167; opacity: .8; }
+.app-shell :is(.primary-button, .parse-button, .add-button) {
+  color: #fff; border: 1px solid #ffffff57; border-radius: 14px;
+  background: linear-gradient(145deg, #138c71, #066d57);
+  box-shadow: 0 7px 18px #087d6a20, inset 0 1px 0 #ffffff3b;
+  transition: transform .2s, box-shadow .2s, filter .2s;
+}
+.app-shell :is(.sample-button, .favorite-button, .search-controls button, .search-empty button, .management-actions button:not(.primary-button), .publication-manager button:not(.primary-button), .registration-panel button:not(.primary-button), .event-details-close, .notifications-page button, .onboarding-header button, .onboarding-actions > button:first-child) {
+  color: #076b53; border: 1px solid #c0dbcd; border-radius: 12px;
+  background: linear-gradient(135deg, #ffffffde, #eef8f2c9);
+  box-shadow: inset 0 1px 0 #fff, 0 2px 5px #123e3005;
+  transition: background .2s, transform .2s, box-shadow .2s;
+}
+.app-shell .search-categories button.selected { color: #fff; background: linear-gradient(140deg, #198c71, #076c56); border-color: #087d6a; box-shadow: 0 3px 10px #087d6a1c; }
+.app-shell .favorite-button.favorited { background: #fff2ed; border-color: #eac4bb; color: #a83b32; }
+.app-shell :is(.danger-button, .remove-event-button) { color: #a13731; }
+.app-shell .publication-manager button.danger-button { background: #fff3ef; border-color: #e8c4ba; color: #a13731; }
+.app-shell .event-remove-confirm { border: 1px solid #eacbc1; background: #fff5f0; border-radius: 14px; }
+.app-shell :is(.parse-error, .account-error) { background: #fff4ef; border: 1px solid #ecc9bd; color: #913c30; border-radius: 13px; }
+.app-shell button:focus-visible, .app-shell a:focus-visible { outline: 2px solid #08775f; outline-offset: 4px; }
+.app-shell button:disabled { cursor: not-allowed; }
+
+/* Native dialog semantics, focus trapping, and actions are untouched. */
+.app-shell :is(.event-details-dialog, .onboarding-dialog) {
+  background: linear-gradient(135deg, #fffffff5, #edf9f2f5); border: 1px solid #fffffff2;
+  border-radius: 28px; box-shadow: 0 28px 90px #103c3040, inset 0 1px 0 #fff;
+  -webkit-backdrop-filter: blur(20px) saturate(140%); backdrop-filter: blur(20px) saturate(140%);
+}
+.app-shell :is(.event-details-dialog, .onboarding-dialog)::backdrop { background: #143d306b; -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); }
+.app-shell :is(.event-details-dialog, .onboarding-dialog)[open] { animation: glass-dialog-enter .24s cubic-bezier(.2,.8,.2,1); }
+.app-shell .event-details-dialog .event-details-description { background: #ffffffa6; }
+.app-shell .onboarding-icon { background: linear-gradient(140deg, #fff, #d2eddf); box-shadow: inset 0 1px 0 #fff, 0 6px 16px #087d6a0a; border: 1px solid #fff; }
+.app-shell .onboarding-progress button { border-color: #c0dbcd; background: #ffffffb8; }
+.app-shell .onboarding-progress button[aria-current] { background: #087d6a; color: #fff; }
+.app-shell > footer { background: #ffffff47; border-top: 1px solid #ffffffd9; color: #567467; }
+
+@keyframes glass-dialog-enter { from { opacity: 0; transform: translateY(10px) scale(.985); } to { opacity: 1; transform: none; } }
+@media (hover: hover) {
+  .app-shell .event-card:hover { transform: translateY(-4px); border-color: #b7dcca; box-shadow: 0 18px 38px #174d3b13, inset 0 1px 0 #fff; }
+  .app-shell .publication-manager > .event-card:hover { transform: none; box-shadow: none; border-color: transparent; }
+  .app-shell :is(.primary-button, .parse-button, .add-button):not(:disabled):hover { transform: translateY(-2px); filter: brightness(1.07); box-shadow: 0 10px 24px #087d6a2b, inset 0 1px 0 #ffffff54; }
+  .app-shell :is(.sample-button, .favorite-button, .management-actions button:not(.primary-button)):not(:disabled):hover { transform: translateY(-1px); box-shadow: 0 5px 14px #174d3b10, inset 0 1px 0 #fff; }
+}
+.app-shell :is(.primary-button, .parse-button, .add-button, .sample-button):not(:disabled):active { transform: scale(.98); }
+@media (max-width: 760px) {
+  .app-shell > main { padding-top: 32px; padding-bottom: 42px; }
+  .app-shell :is(.notice-panel, .result-panel, .publication-manager) { padding: 20px; }
+  .app-shell .hero-section { border-radius: 24px; }
+  .app-shell .result-actions { flex-wrap: wrap; }
+  .app-shell :is(.result-actions, .registration-heading) > button { min-height: 42px; }
+  .app-shell :is(.event-card, .smart-insight, .notification-item) { border-radius: 18px; }
+  .app-shell :is(input:not([type='checkbox']):not([type='radio']), textarea, select) { font-size: 16px; }
+}
+@media (max-width: 480px) {
+  .app-shell .auth-page form { padding: 20px; }
+  .app-shell .registration-heading { flex-wrap: wrap; }
+  .app-shell .event-details-header { gap: 10px; }
+  .app-shell .event-details-dialog { padding: 20px; }
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .app-shell :is(.notice-panel, .result-panel, .search-controls, .publish-form, .auth-page form, .publication-manager, .event-card, .notification-item, .event-details-dialog, .onboarding-dialog) { background: var(--glass-solid); border-color: #d4e6da; }
+}
+@media (prefers-reduced-transparency: reduce) {
+  .app-shell :is(.notice-panel, .result-panel, .search-controls, .publish-form, .auth-page form, .publication-manager, .event-card, .notification-item, .event-details-dialog, .onboarding-dialog) { background: var(--glass-solid); -webkit-backdrop-filter: none; backdrop-filter: none; }
+  .app-shell :is(.event-details-dialog, .onboarding-dialog)::backdrop { -webkit-backdrop-filter: none; backdrop-filter: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .app-shell *, .app-shell *::before, .app-shell *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  .app-shell .event-card:hover, .app-shell button:not(:disabled):hover, .app-shell button:not(:disabled):active { transform: none; }
+}
+@media (forced-colors: active) {
+  body { background: Canvas; color: CanvasText; }
+  .app-shell :is(.hero-section, .intro-section, .notice-panel, .result-panel, .search-controls, .publish-form, .auth-page form, .publication-manager, .event-card, .notification-item, .event-details-dialog, .onboarding-dialog) { background: Canvas; color: CanvasText; border: 1px solid CanvasText; box-shadow: none; -webkit-backdrop-filter: none; backdrop-filter: none; }
+  .app-shell :is(button, input, textarea, select) { border: 1px solid ButtonText; box-shadow: none; }
+  .app-shell .search-categories button.selected { outline: 2px solid Highlight; }
+}

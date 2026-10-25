@@ -1,0 +1,19 @@
+{
+  "name": "ccnu-radar-backend",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "share": "node share.js",
+    "share:ngrok": "node share-ngrok.js",
+    "test": "node --test auth.test.js registrations.test.js share.test.js management.test.js regressions.test.js onboarding.test.js presentation.test.js local.test.js"
+  },
+  "engines": {
+    "node": ">=22.13"
+  },
+  "dependencies": {
+    "dotenv": "^18.0.7",
+    "express": "^5.3.0"
+  }
+}

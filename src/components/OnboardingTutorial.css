@@ -1,0 +1,21 @@
+.onboarding-dialog { width: min(620px, calc(100vw - 32px)); max-height: calc(100dvh - 40px); overflow-y: auto; box-sizing: border-box; border: 1px solid #cce5dc; border-radius: 22px; padding: 28px; color: #17333c; background: #fff; box-shadow: 0 24px 90px #123e3033; }
+.onboarding-dialog::backdrop { background: #10392f88; backdrop-filter: blur(4px); }
+.onboarding-header, .onboarding-actions { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.onboarding-dialog button { font: inherit; cursor: pointer; }
+.onboarding-header button, .onboarding-actions > button:first-child { background: transparent; border: 1px solid #c6ddd5; color: #087d6a; border-radius: 9px; padding: 9px 13px; }
+.onboarding-dialog button:disabled { cursor: default; opacity: .5; }
+.onboarding-progress { display: flex; justify-content: space-between; list-style: none; margin: 28px 0; padding: 0; gap: 16px; }
+.onboarding-progress li { flex: 1; border-bottom: 3px solid #e1f0ea; padding-bottom: 12px; }
+.onboarding-progress button { width: 34px; height: 34px; border-radius: 50%; border: 1px solid #c6ddd5; color: #087d6a; background: #f1faf6; }
+.onboarding-progress button[aria-current] { background: #087d6a; color: #fff; border-color: #087d6a; }
+.onboarding-icon { display: inline-flex; align-items: center; justify-content: center; width: 64px; height: 64px; border-radius: 18px; background: #e8f7ef; color: #087d6a; font-size: 2rem; }
+.onboarding-counter { color: #087d6a; font-size: .85rem; margin-top: 18px; }
+.onboarding-content h2 { font-size: clamp(1.6rem, 5vw, 2.1rem); margin: 12px 0; }
+.onboarding-content > #onboarding-subtitle { color: #087d6a; font-weight: 600; margin-bottom: 22px; }
+.onboarding-explanation { background: #f4faf7; border-radius: 10px; padding: 14px 16px; line-height: 1.8; font-size: .94rem; }
+.onboarding-dialog .onboarding-actions { background: none; border: 0; margin: 26px 0 12px; padding: 0; font-size: .9rem; }
+.onboarding-note { color: #687d80; line-height: 1.7; font-size: .8rem; }
+.onboarding-save-error > button { background: #edf8f2; color: #087d6a; border: 1px solid #bad2cc; border-radius: 12px; padding: 10px 14px; }
+.onboarding-deferred { max-width: 1116px; margin: 12px auto; padding: 12px 16px; border: 1px solid #c4ddcf; border-radius: 12px; background: #f1faf4; color: #386354; font-size: .85rem; line-height: 1.8; }
+.onboarding-dialog button:focus-visible { outline: 3px solid #21ac8c; outline-offset: 3px; }
+@media (max-width: 520px) { .onboarding-dialog { padding: 20px; }.onboarding-header { align-items: flex-start; }.onboarding-actions { flex-wrap: wrap; } }

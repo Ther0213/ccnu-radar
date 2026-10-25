@@ -1,0 +1,9 @@
+.env
+.env.*
+!.env.example
+node_modules/
+data/
+.share-state.json
+.ngrok.local.yml
+tools/
+*.log

@@ -1,0 +1,17 @@
+.search-events-page { padding: 64px 32px 80px; min-height: 70vh; }
+.search-events-hero { text-align: center; }
+.search-events-hero h1 { font-size: clamp(2.2rem, 4vw, 3.6rem); }
+.search-events-hero > p:last-child { color: #687d80; margin: 20px 0 32px; line-height: 1.8; }
+.search-controls { background: #f2faf7; border: 1px solid #dceee7; border-radius: 16px; padding: 24px; }
+.search-controls label { display: block; font-size: .9rem; font-weight: 700; color: #087d6a; margin-bottom: 12px; }
+.search-input-row { display: flex; gap: 12px; }
+.search-input-row input { flex: 1; min-width: 0; border: 1px solid #bad2cc; border-radius: 9px; padding: 14px; font: inherit; background: white; }
+.search-controls button, .search-empty button { border: 1px solid #bad2cc; border-radius: 9px; padding: 10px 14px; font: inherit; font-size: .85rem; color: #087d6a; background: white; cursor: pointer; }
+.search-categories { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+.search-categories button.selected { background: #087d6a; border-color: #087d6a; color: white; }
+.advanced-filters { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-top: 22px; }
+.advanced-filters input, .advanced-filters select { display: block; width: 100%; margin-top: 8px; padding: 11px; background: #fff; border: 1px solid #bad2cc; border-radius: 8px; font: inherit; }
+.search-results-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 36px; }
+.search-results-heading h2 { font-size: 1.4rem; }.search-results-heading p, .search-source-note { color: #687d80; font-size: .85rem; }
+.search-source-note { margin: 8px 0 22px; }.search-empty { text-align: center; background: #f7fbfa; border-radius: 16px; padding: 48px 20px; }.search-empty h2 { font-size: 1.3rem; }.search-empty p { color: #687d80; }
+@media (max-width: 680px) { .search-events-page { padding: 40px 16px; }.search-controls { padding: 16px; }.search-input-row { flex-wrap: wrap; }.search-input-row input { flex-basis: 100%; } }

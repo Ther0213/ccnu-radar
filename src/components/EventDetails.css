@@ -1,0 +1,16 @@
+.event-details-dialog { border: 1px solid #dbe9e5; border-radius: 18px; padding: 26px; width: min(640px, calc(100vw - 32px)); max-height: 85vh; overflow-y: auto; color: #193740; background: #fff; box-shadow: 0 24px 80px #102f3540; }
+.event-details-dialog::backdrop { background: #102f3566; }
+.qq-group-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-bottom: 8px; }
+.qq-group-actions code { user-select: text; font-size: 1.15rem; letter-spacing: .05em; overflow-wrap: anywhere; }
+.qq-group-actions button { font: inherit; color: #087d6a; background: #f0faf6; border: 1px solid #bad2cc; border-radius: 10px; padding: 8px 14px; cursor: pointer; }
+.event-details-header { display: flex; align-items: start; justify-content: space-between; gap: 16px; }
+.event-details-header h2 { font-size: 1.5rem; line-height: 1.5; margin: 12px 0 18px; overflow-wrap: anywhere; }
+.event-details-dialog .event-details-close { border: 1px solid #bad2cc; background: #fff; border-radius: 8px; padding: 8px 12px; color: #087d6a; white-space: nowrap; font: inherit; cursor: pointer; }
+.event-details-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin: 0 0 20px; }
+.event-details-fields dt { font-size: .8rem; color: #718486; }
+.event-details-fields dd { margin: 5px 0 0; line-height: 1.6; overflow-wrap: anywhere; }
+.event-details-dialog section { background: #f2faf7; border-radius: 10px; padding: 14px 16px; margin-top: 12px; }
+.event-details-dialog section h3 { font-size: .95rem; color: #087d6a; margin: 0 0 8px; }
+.event-details-dialog section p { font-size: .88rem; line-height: 1.8; margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; }
+.event-details-dialog .event-details-description { background: #f7f9f8; }
+@media (max-width: 480px) { .event-details-dialog { padding: 18px; } .event-details-fields { grid-template-columns: 1fr; } }
